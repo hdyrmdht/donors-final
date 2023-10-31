@@ -77,23 +77,27 @@ class _HomeLayoutState extends State<HomeLayout> {
               index = value;
               setState(() {});
             },
-            // ignore: prefer_const_literals_to_create_immutables
-            items: [
+              items: [
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage("assets/images/home_icon.png"),size: 30),
                   label: "Home"),
+                 
               BottomNavigationBarItem(
                   icon: Padding(
                     padding: const EdgeInsets.only(right:16.0),
                     child: ImageIcon(AssetImage("assets/images/hospital.png"),size: 30),
                   ),
                   label: "Hospitals"),
+                  
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/images/blood-donor.png")),
+                  icon: Padding(
+                    padding: const EdgeInsets.only(left:15.0),
+                    child: ImageIcon(AssetImage("assets/images/donors.png"),size: 30,),
+                  ),
                    label: "Donors"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings, 
-                  size: 30),
+                 icon: ImageIcon(AssetImage("assets/images/settings.png")),
+                  
                   label: "Settings"),
             ]),
       ),
