@@ -96,7 +96,10 @@ class _HomeLayoutState extends State<HomeLayout> {
                   ),
                    label: "Donors"),
               BottomNavigationBarItem(
-                 icon: ImageIcon(AssetImage("assets/images/settings.png")),
+                 icon: Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: ImageIcon(AssetImage("assets/images/settings.png")),
+                 ),
                   
                   label: "Settings"),
             ]),

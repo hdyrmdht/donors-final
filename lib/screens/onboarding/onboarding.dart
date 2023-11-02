@@ -1,3 +1,4 @@
+import 'package:bloodbank_donors/layout/home_layout.dart';
 import 'package:bloodbank_donors/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -106,7 +107,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           borderRadius: BorderRadius.circular(15)),
                       color: Colors.white,
                       onPressed: () {
-                       Navigator.pushNamed(context, ProfileScreen.routeName);
+                       Navigator.pushReplacementNamed(context,"homeLayout");
                       },
                       child: Text("للننطلق",
                           style: TextStyle(

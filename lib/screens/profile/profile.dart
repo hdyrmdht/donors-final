@@ -1,6 +1,10 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'dart:io';
 
 import 'package:bloodbank_donors/models/image_picker.dart';
+import 'package:bloodbank_donors/share/componant/profilecomponant.dart';
+import 'package:bloodbank_donors/style/colors.dart';
 import 'package:flutter/material.dart';
 
 
@@ -21,7 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
        title: Text("My Profile"),
-        backgroundColor: Colors.redAccent,
+        backgroundColor:AppColors.primary,
         iconTheme: IconThemeData(color: Colors.black),
       ),
       body: Center(
@@ -33,7 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: EdgeInsets.all(15),
                 margin: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.redAccent,
+                  color: AppColors.primary30,
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: Column(
@@ -42,8 +46,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Donor" ,style: TextStyle(color: Colors.white ,fontSize: 20)),
-                      SizedBox(width: 20),
+                      Text("Donor" ,style: TextStyle(color: Colors.white ,fontSize: 19)),
+                      SizedBox(width: 10),
                       Stack(
                         children: [
                           CircleAvatar(
@@ -68,8 +72,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
 
                       ),
-                      SizedBox(width: 20,),
-                      Text("bloodtype \n o-" ,style: TextStyle(color: Colors.white,fontSize: 20),)
+                      SizedBox(width: 10,),
+                      Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text("bloodtype" ,style: TextStyle(color: Colors.white,fontSize: 17),),
+                          Text(" A -" ,style: TextStyle(color: Colors.white,fontSize: 19),),
+                        ],
+                      )
                     ],
                   ),
                   SizedBox(
@@ -81,13 +90,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Column(
                         children: [
                           Icon(Icons.calendar_today_outlined),
-                          Text("Available For\n Donation",style: TextStyle(color: Colors.white,fontSize: 20)),
+                          Text("Available For\n Donation",style: TextStyle(fontSize: 13)),
                         ],
                       ),
                       Column(
                         children: [
                           Icon(Icons.access_time),
-                          Text("Last Time\n For donation"),
+                          Text("Last Time\n For donation",style: TextStyle(fontSize: 13),),
                         ],
                       ),
                       Column(
@@ -100,52 +109,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ]),
               ),
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  children: [
-                    Icon(Icons.person),
-                    Text("Name : Sara"),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  children: [
-                    Icon(Icons.location_on),
-                    Text("Location : ......."),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  children: [
-                    Icon(Icons.phone),
-                    Text("PhoneNumber : 0111234444"),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  children: [
-                    Icon(Icons.person),
-                    Text("Gender : Female"),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  children: [
-                    Icon(Icons.calendar_today_rounded),
-                    Text("Age : 21"),
-                  ],
-                ),
-              ),
-
+              detailswidget( Icons.person,"Name : Sara"),
+              detailswidget( Icons.location_on,"Location :cairo"),
+              detailswidget(Icons.phone,"PhoneNumber : 0111234444"),
+              detailswidget(Icons.person,"Gender : Female"),
+              detailswidget(Icons.calendar_today_rounded, "Age : 21"),
+            
+    
               MaterialButton(
                 color: Colors.redAccent,
                 padding: EdgeInsets.all(20),

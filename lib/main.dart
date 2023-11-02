@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeLayout.routeName,
+      initialRoute: OnboardingScreen.routeName,
       routes: {
         HomeLayout.routeName: (context) => const HomeLayout(),
         ProfileScreen.routeName :(context) => ProfileScreen(),

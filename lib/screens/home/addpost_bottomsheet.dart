@@ -26,13 +26,16 @@ class AddPostbtnSheet extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text(
-                          "نشر",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
+                     SizedBox(height: 65,width: 90,
+                       child: MaterialButton(
+                                     color:AppColors.primary,
+                                     padding: EdgeInsets.all(20),
+                                     shape: OutlineInputBorder(
+                                         borderRadius: BorderRadius.circular(30),
+                                         borderSide: BorderSide(color: Colors.transparent)),
+                                     onPressed: () {},
+                                     child: Center(child: Text("نشر",style: TextStyle(fontSize: 20,color: AppColors.grey30,fontWeight: FontWeight.w300),)),),
+                     ),
                       Spacer(),
                       Row(
                         children: [
