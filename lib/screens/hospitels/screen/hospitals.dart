@@ -1,11 +1,11 @@
 import 'package:bloodbank_donors/style/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../share/componant/drop_dwon_menu.dart';
+import '../../../share/componant/drop_dwon_menu.dart';
 
-class Donors extends StatelessWidget {
-  const Donors({super.key});
-  static const String donors = "donors";
+class Hospitals extends StatelessWidget {
+  const Hospitals({super.key});
+  static const String hospitals = "hospitals";
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class Donors extends StatelessWidget {
         child: Container(
           height: 130,
           decoration: BoxDecoration(
-            color: AppColors.primary60,
+            color: AppColors.primary,
             borderRadius: const BorderRadius.only(
               bottomRight: Radius.circular(30),
               bottomLeft: Radius.circular(30),
@@ -40,7 +40,7 @@ class Donors extends StatelessWidget {
                       height: 12,
                     ),
                     Text(
-                      "ابحث عن متبرع",
+                      "ابحث عن مستشفى",
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: AppColors.white,
@@ -48,11 +48,11 @@ class Donors extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "اشخاص جاهزون للتبرع",
+                      "يوجد بها دماء",
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: AppColors.white,
-                        fontSize: 26,
+                        fontSize: 14,
                       ),
                     ),
                   ],
@@ -94,7 +94,7 @@ class Donors extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 26,
-                                color: AppColors.primary60,
+                                color: AppColors.primary,
                               ),
                             ),
                             onTap: () {
@@ -108,7 +108,7 @@ class Donors extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 26,
-                                color: AppColors.primary60,
+                                color: AppColors.primary,
                               ),
                             ),
                             onTap: () {},
@@ -120,7 +120,7 @@ class Donors extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 26,
-                                color: AppColors.primary60,
+                                color: AppColors.primary,
                               ),
                             ),
                             onTap: () {},
@@ -132,7 +132,7 @@ class Donors extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 26,
-                                color: AppColors.primary60,
+                                color: AppColors.primary,
                               ),
                             ),
                             onTap: () {},
@@ -144,7 +144,7 @@ class Donors extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 26,
-                                color: AppColors.primary60,
+                                color: AppColors.primary,
                               ),
                             ),
                             onTap: () {},
@@ -156,7 +156,7 @@ class Donors extends StatelessWidget {
                               "AB",
                               style: TextStyle(
                                 fontSize: 26,
-                                color: AppColors.primary60,
+                                color: AppColors.primary,
                               ),
                             ),
                             onTap: () {},
@@ -168,7 +168,7 @@ class Donors extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 26,
-                                color: AppColors.primary60,
+                                color: AppColors.primary,
                               ),
                             ),
                             onTap: () {},
@@ -180,7 +180,7 @@ class Donors extends StatelessWidget {
                               "O-",
                               style: TextStyle(
                                 fontSize: 26,
-                                color: AppColors.primary60,
+                                color: AppColors.primary,
                               ),
                             ),
                             onTap: () {},
@@ -191,8 +191,8 @@ class Donors extends StatelessWidget {
                               textAlign: TextAlign.center,
                               "O+",
                               style: TextStyle(
+                                color: AppColors.primary,
                                 fontSize: 26,
-                                color: AppColors.primary60,
                               ),
                             ),
                             onTap: () {},
@@ -205,13 +205,13 @@ class Donors extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.sizeOf(context).width * 0.5,
                       child: Text(
-                        "? هل تريد البحث عن فصيله محدده",
+                        "? هل تريد البحث عن مستشفى يوجد بها فصيله محدده",
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         textAlign: TextAlign.end,
                         style: TextStyle(
-                          fontSize: 26,
-                          color: AppColors.primary60,
+                          color: AppColors.grey,
+                          fontSize: 14,
                         ),
                       ),
                     ),
@@ -221,7 +221,7 @@ class Donors extends StatelessWidget {
               Expanded(
                 child: ListView.separated(
                     itemBuilder: (context, index) {
-                      return itemDonorsListView();
+                      return itemHospitalsListView();
                     },
                     separatorBuilder: (context, index) {
                       return const Divider();
@@ -236,13 +236,13 @@ class Donors extends StatelessWidget {
   }
 }
 
-Widget itemDonorsListView() {
+Widget itemHospitalsListView() {
   return Padding(
     padding: const EdgeInsets.all(12),
     child: Column(
       children: [
         Container(
-          color: AppColors.primary60,
+          color: AppColors.primary,
           child: Padding(
             padding: const EdgeInsets.all(4),
             child: Row(
@@ -255,12 +255,12 @@ Widget itemDonorsListView() {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "احمد مجاهد",
+                          "السلام العامه",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 26,
-                            color: AppColors.primary60,
+                            color: AppColors.white,
+                            fontSize: 12,
                           ),
                         ),
                         Text(
@@ -268,31 +268,8 @@ Widget itemDonorsListView() {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 16,
                             color: AppColors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          " O +",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
                             fontSize: 16,
-                            color: AppColors.white,
-                          ),
-                        ),
-                        Text(
-                          ": الفصيله",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: AppColors.white,
                           ),
                         ),
                       ],
@@ -300,12 +277,12 @@ Widget itemDonorsListView() {
                     Row(
                       children: [
                         Text(
-                          "01125345129",
+                          "+0238802560",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 16,
                             color: AppColors.white,
+                            fontSize: 12,
                           ),
                         ),
                         Text(
@@ -313,8 +290,8 @@ Widget itemDonorsListView() {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 16,
                             color: AppColors.white,
+                            fontSize: 16,
                           ),
                         ),
                       ],
@@ -322,12 +299,12 @@ Widget itemDonorsListView() {
                     Row(
                       children: [
                         Text(
-                          "عزبه الكرام ,المنصوره",
+                          "طنطا السلام ,المنصوره",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 16,
                             color: AppColors.white,
+                            fontSize: 12,
                           ),
                         ),
                         Text(
@@ -335,8 +312,8 @@ Widget itemDonorsListView() {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 16,
                             color: AppColors.white,
+                            fontSize: 16,
                           ),
                         ),
                       ],
@@ -344,7 +321,7 @@ Widget itemDonorsListView() {
                   ],
                 ),
                 Icon(
-                  Icons.person_pin_rounded,
+                  Icons.hot_tub_sharp,
                   color: AppColors.white,
                   size: 50,
                 )
@@ -381,10 +358,7 @@ Widget itemDonorsListView() {
               ),
               Text(
                 "اعرف المزيد",
-                style: TextStyle(
-                  fontSize: 22,
-                  color: AppColors.white,
-                ),
+                style: TextStyle(color: AppColors.white, fontSize: 22),
               ),
             ],
           ),

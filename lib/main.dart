@@ -1,10 +1,13 @@
-import 'package:bloodbank_donors/screens/home/home.dart';
 import 'package:bloodbank_donors/layout/home_layout.dart';
+import 'package:bloodbank_donors/screens/home/home.dart';
+import 'package:bloodbank_donors/screens/home/search_page/view/search_page.dart';
+import 'package:bloodbank_donors/screens/hospitels/screen/hospitals.dart';
 import 'package:bloodbank_donors/screens/onboarding/onboarding.dart';
 import 'package:bloodbank_donors/screens/profile/profile.dart';
-import 'package:bloodbank_donors/screens/home/search_page/view/search_page.dart';
 import 'package:bloodbank_donors/screens/settings/settings.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/donors/donor.dart';
 import 'screens/favouriates/views/hospital_view.dart';
 import 'screens/settings/helppage/HelpPage.dart';
 import 'screens/settings/settingspage/Notification.dart';
@@ -21,9 +24,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: OnboardingScreen.routeName,
+      // initialRoute: Hospitals.hospitals,
       routes: {
         HomeLayout.routeName: (context) => const HomeLayout(),
-        ProfileScreen.routeName :(context) => ProfileScreen(),
+        Donors.donors: (context) => const Donors(),
+        Hospitals.hospitals: (context) => const Hospitals(),
+        ProfileScreen.routeName: (context) => ProfileScreen(),
         HomeScreen.routeName: (context) => HomeScreen(),
         SearchPage.routeName: (context) => const SearchPage(),
         HospitalsView.routeName: (context) => const HospitalsView(),
@@ -31,10 +37,8 @@ class MyApp extends StatelessWidget {
         SettingsTab.routeName: (context) => SettingsTab(),
         SecurityPage.routeName: (context) => const SecurityPage(),
         HelpPage.routeName: (context) => const HelpPage(),
-         OnboardingScreen.routeName : (context) => const OnboardingScreen(),
-     
+        OnboardingScreen.routeName: (context) => const OnboardingScreen(),
       },
-
     );
   }
 }
