@@ -15,6 +15,7 @@ class MyRegister extends StatefulWidget {
   _MyRegisterState createState() => _MyRegisterState();
 }
 
+
 class _MyRegisterState extends State<MyRegister> {
   var nameController = TextEditingController();
   var emailController = TextEditingController();
