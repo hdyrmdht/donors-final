@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: '>=3.2.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -41,8 +41,14 @@ dependencies:
   device_info_plus: ^9.1.0
   searchbar_animation: any
   expandable: ^5.0.1
+  shared_preferences: ^2.2.0
+
   # google_fonts: ^6.1.0
   # remixicon: any
+  flutter_bloc: ^8.1.1
+  conditional_builder_null_safety: ^0.0.6
+  smooth_page_indicator: ^1.0.0+2
+  simple_gradient_text: ^1.2.4
 
 dev_dependencies:
   flutter_test:

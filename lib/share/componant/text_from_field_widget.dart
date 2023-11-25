@@ -19,7 +19,7 @@ Widget defaultFormField({
   bool? readOnly,
   BorderRadius? border,
   int? flex,
-  context,
+  required BuildContext context,
   colorSuffixIcon,
 }) =>
     Expanded(
@@ -37,7 +37,7 @@ Widget defaultFormField({
         onTap: taped,
         readOnly: readOnly ?? false,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(2),
+          contentPadding: const EdgeInsets.all(0),
           hintStyle: TextStyle(
             color: Colors.black.withOpacity(0.4),
 
@@ -52,12 +52,12 @@ Widget defaultFormField({
             borderSide: BorderSide(color: AppColors.primary),
           ),
           filled: true,
-          fillColor: fillsColor ?? AppColors.white,
+          fillColor: fillsColor ?? AppColors.grey100,
           prefixIcon: prefix != null ? Icon(prefix) : null,
           hintText: hintText,
           suffixIcon: suffixIcon != null
               ? SizedBox(
-                  width: MediaQuery.sizeOf(context).width * 0.03,
+                  width: MediaQuery.sizeOf(context).width * 0.5,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -72,7 +72,7 @@ Widget defaultFormField({
                           width: 20,
                         ),
                       SizedBox(
-                        width: MediaQuery.sizeOf(context).width * 0.01,
+                        width: MediaQuery.sizeOf(context).width * 0.1,
                         child: IconButton(
                           onPressed: () {
                             suffixPressd!();
