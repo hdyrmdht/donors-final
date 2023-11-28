@@ -1,8 +1,9 @@
-import 'package:bloodbank_donors/screens/register/sign_up.dart';
 import 'package:bloodbank_donors/share/componant/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../login/login.dart';
 
 class BoardingModel {
   String? image;
@@ -51,7 +52,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const MyRegister(),
+          builder: (context) => const MyLogin(),
         ),
       );
     });

@@ -8,14 +8,14 @@ import '../../share/componant/text_from_field_widget.dart';
 import '../login/login.dart';
 import '../login/pageroute.dart';
 
-class MyRegisterUser extends StatefulWidget {
-  const MyRegisterUser({Key? key}) : super(key: key);
+class MyRegisterHospital extends StatefulWidget {
+  const MyRegisterHospital({Key? key}) : super(key: key);
 
   @override
-  _MyRegisterUserState createState() => _MyRegisterUserState();
+  _MyRegisterHospitalState createState() => _MyRegisterHospitalState();
 }
 
-class _MyRegisterUserState extends State<MyRegisterUser> {
+class _MyRegisterHospitalState extends State<MyRegisterHospital> {
   var nameController = TextEditingController();
   var emailController = TextEditingController();
   var ageController = TextEditingController();
@@ -23,16 +23,13 @@ class _MyRegisterUserState extends State<MyRegisterUser> {
   var phoneController = TextEditingController();
   var passwordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => ChatRegisterCubit(),
       child: BlocConsumer<ChatRegisterCubit, ChatRegisterStates>(
-        listener: (context, state) {
-          if (state is CreateUserSuccessState) {
-            // navigateAndFinish(context, MyLogin());
-          }
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           return Container(
             decoration: const BoxDecoration(
@@ -49,17 +46,16 @@ class _MyRegisterUserState extends State<MyRegisterUser> {
               body: SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.only(
-                    right: 10,
-                    left: 10,
-                    top: MediaQuery.of(context).size.height * 0.2,
-                  ),
+                      right: 35,
+                      left: 35,
+                      top: MediaQuery.of(context).size.height * 0.15),
                   child: Form(
                     key: formKey,
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            "Create Account User",
+                            "Create Account Hospital",
                             style: TextStyle(color: Colors.red, fontSize: 33),
                           ),
                           defaultFormField(
@@ -90,24 +86,6 @@ class _MyRegisterUserState extends State<MyRegisterUser> {
                             validate: (String? value) {
                               if (value!.isEmpty) {
                                 return 'Age must not be empty';
-                              }
-
-                              return null;
-                            },
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          defaultFormField(
-                            controller: ageController,
-                            hintText: 'Type Blood',
-                            labelText: 'Type Blood',
-                            context: context,
-                            type: TextInputType.text,
-                            prefix: Icons.person,
-                            validate: (String? value) {
-                              if (value!.isEmpty) {
-                                return 'Type Blood must not be empty';
                               }
 
                               return null;
@@ -263,7 +241,7 @@ class _MyRegisterUserState extends State<MyRegisterUser> {
                                           //   password: passwordController.text,
                                           // );
                                           Navigator.push(context,
-                                              Fadetion(page: MyLogin()));
+                                              Fadetion(page: const MyLogin()));
                                         }
                                       },
                                       icon: const Icon(Icons.arrow_forward),
@@ -281,8 +259,8 @@ class _MyRegisterUserState extends State<MyRegisterUser> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.push(
-                                        context, Rotation(page: MyLogin()));
+                                    Navigator.push(context,
+                                        Rotation(page: const MyLogin()));
                                   },
                                   child: const Text(
                                     'Sign In',
@@ -293,7 +271,7 @@ class _MyRegisterUserState extends State<MyRegisterUser> {
                                     ),
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                               ]),
                         ]),
                   ),

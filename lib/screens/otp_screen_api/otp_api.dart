@@ -1,13 +1,4 @@
-// import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter/material.dart';
-// import 'package:lamusic/core/utils/colors.dart';
-// import 'package:lamusic/core/utils/styles.dart';
-// import 'package:lamusic/features/register_login/presentation/view/auth/auth.dart';
-// import 'package:lamusic/features/register_login/presentation/view_model/managers/provider/music_provider.dart';
-// import 'package:provider/provider.dart';
-//
-// import '../../../../home/presentation/view/home.dart';
-// import '../../view_model/managers/provider/internet_provider.dart';
 //
 // class PhoneAuthScreen extends StatefulWidget {
 //   const PhoneAuthScreen({Key? key}) : super(key: key);
