@@ -81,21 +81,21 @@ class _HomeLayoutState extends State<HomeLayout> {
                 index = value;
                 setState(() {});
               },
-              items: [
+              items: const [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/home_icon.png"),
                         size: 30),
                     label: "Home"),
                 BottomNavigationBarItem(
                     icon: Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
+                      padding: EdgeInsets.only(right: 16.0),
                       child: ImageIcon(AssetImage("assets/images/hospital.png"),
                           size: 30),
                     ),
                     label: "Hospitals"),
                 BottomNavigationBarItem(
                     icon: Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: EdgeInsets.only(left: 15.0),
                       child: ImageIcon(
                         AssetImage("assets/images/donors.png"),
                         size: 30,
@@ -104,7 +104,7 @@ class _HomeLayoutState extends State<HomeLayout> {
                     label: "Donors"),
                 BottomNavigationBarItem(
                     icon: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child:
                           ImageIcon(AssetImage("assets/images/settings.png")),
                     ),

@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../share/componant/text_from_field_widget.dart';
 import '../login/login.dart';
 import '../login/pageroute.dart';
+import '../otp_screen_api/screens/phone_number.dart';
 
 class MyRegisterHospital extends StatefulWidget {
   const MyRegisterHospital({Key? key}) : super(key: key);
@@ -201,7 +202,9 @@ class _MyRegisterHospitalState extends State<MyRegisterHospital> {
                               IconButton(
                                 onPressed: () {
                                   Navigator.push(
-                                      context, Fadetion(page: const MyLogin()));
+                                      context,
+                                      Fadetion(
+                                          page: const PhoneNumberScreen()));
                                 },
                                 icon: const Icon(
                                   Icons.phone,

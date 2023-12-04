@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../share/componant/text_from_field_widget.dart';
 import '../login/login.dart';
 import '../login/pageroute.dart';
+import '../otp_screen_api/screens/phone_number.dart';
 
 class MyRegisterUser extends StatefulWidget {
   const MyRegisterUser({Key? key}) : super(key: key);
@@ -223,7 +224,9 @@ class _MyRegisterUserState extends State<MyRegisterUser> {
                               IconButton(
                                 onPressed: () {
                                   Navigator.push(
-                                      context, Fadetion(page: const MyLogin()));
+                                      context,
+                                      Fadetion(
+                                          page: const PhoneNumberScreen()));
                                 },
                                 icon: const Icon(
                                   Icons.phone,
