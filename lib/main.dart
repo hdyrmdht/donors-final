@@ -1,4 +1,5 @@
 import 'package:bloodbank_donors/layout/home_layout.dart';
+import 'package:bloodbank_donors/paint.dart';
 import 'package:bloodbank_donors/screens/home/home.dart';
 import 'package:bloodbank_donors/screens/home/search_page/view/search_page.dart';
 import 'package:bloodbank_donors/screens/hospitels/screen/hospitals.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         SecurityPage.routeName: (context) => const SecurityPage(),
         HelpPage.routeName: (context) => const HelpPage(),
         OnBoardingScreen.routeName: (context) => const OnBoardingScreen(),
+        // OnBoardingScreen.routeName: (context) => const Paintt(),
       },
     );
   }
