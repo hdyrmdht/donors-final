@@ -52,6 +52,7 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   smooth_page_indicator: ^1.0.0+2
   simple_gradient_text: ^1.2.4
+  dio: ^5.4.1
 
 dev_dependencies:
   flutter_test:

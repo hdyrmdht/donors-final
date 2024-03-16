@@ -35,7 +35,7 @@ Widget defaultFormField({
       onTap: taped,
       readOnly: readOnly ?? false,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(0),
+        contentPadding: const EdgeInsets.all(8),
         hintStyle: TextStyle(
           color: Colors.black.withOpacity(0.4),
 
@@ -55,7 +55,7 @@ Widget defaultFormField({
         hintText: hintText,
         suffixIcon: suffixIcon != null
             ? SizedBox(
-                width: MediaQuery.sizeOf(context).width * 0.5,
+                width: MediaQuery.sizeOf(context).width * 0.2,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -67,7 +67,7 @@ Widget defaultFormField({
                       ),
                     if (suffixIcon != null)
                       const SizedBox(
-                        width: 20,
+                        width: 2,
                       ),
                     SizedBox(
                       width: MediaQuery.sizeOf(context).width * 0.1,
