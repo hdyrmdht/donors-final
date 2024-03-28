@@ -1,10 +1,13 @@
 import 'package:bloodbank_donors/screens/auth/login/presentation/view/screens/login.dart';
-import 'package:bloodbank_donors/screens/auth/register/presentation/view/screens/register.dart';
+import 'package:bloodbank_donors/screens/auth/pageroute.dart';
+import 'package:bloodbank_donors/screens/on_bording/on_bording.dart';
 import 'package:bloodbank_donors/share/blocOpserver.dart';
 import 'package:bloodbank_donors/share/componant/cache_helper.dart';
 import 'package:bloodbank_donors/share/network/remote/dioHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:overlay_support/overlay_support.dart';
+import 'layout/home_layout.dart';
 import 'screens/auth/login/presentation/view_model/managers/cubit/cubit.dart';
 import 'screens/auth/register/presentation/view_model/managers/cubit/cubit.dart';
 
@@ -14,40 +17,46 @@ Future main() async {
   await DioHelper.initial();
   Bloc.observer =  MyBlocObserver();
   await CacheHelper.shared();
-
-  runApp(const MyApp());
+  late var onBoarding=CacheHelper.getShared(key:"onBoarding");
+  Widget widget;
+  String? token=CacheHelper.getShared(key: "token");
+  if(onBoarding !=null){
+    if(token!=null){
+      //// Navigator.pushAndRemoveUntil(
+      //         //     context, Fadetion(page: const HomeLayout()),
+      //         //   (route) =>true,
+      //         // );
+      widget=const HomeLayout();
+    }else{
+      widget=Login();
+    }
+  }else{
+    widget=const OnBoardingScreen();
+  }
+  runApp(MyApp(widget: widget,));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  Widget? widget;
+
+  MyApp({super.key,
+    this.widget,
+  });
+
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (BuildContext context) =>LoginCubit(),),
-        BlocProvider(create: (BuildContext context) =>RegisterCubit() ,),
+        BlocProvider(create: (BuildContext context) =>RegisterCubit(),),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Login(),
-        // initialRoute: OnBoardingScreen.routeName,
-        // initialRoute: Hospitals.hospitals,
-        // routes: {
-        //   HomeLayout.routeName: (context) => const HomeLayout(),
-        //   Donors.donors: (context) => const Donors(),
-        //   Hospitals.hospitals: (context) => const Hospitals(),
-        //   ProfileScreen.routeName: (context) => ProfileScreen(),
-        //   HomeScreen.routeName: (context) => HomeScreen(),
-        //   SearchPage.routeName: (context) => const SearchPage(),
-        //   HospitalsView.routeName: (context) => const HospitalsView(),
-        //   NotifiPage.routeName: (context) => const NotifiPage(),
-        //   SettingsTab.routeName: (context) => SettingsTab(),
-        //   SecurityPage.routeName: (context) => const SecurityPage(),
-        //   HelpPage.routeName: (context) => const HelpPage(),
-        //   OnBoardingScreen.routeName: (context) => const OnBoardingScreen(),
-        //   // OnBoardingScreen.routeName: (context) => const Paintt(),
-        // },
-      ),
+      child: OverlaySupport.global(child: MaterialApp(
+         debugShowCheckedModeBanner: false,
+         home: widget,
+       ),),
+
+
     );
   }
 }

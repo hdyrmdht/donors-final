@@ -1,19 +1,24 @@
 
 import 'package:bloodbank_donors/screens/auth/register/presentation/view/widgets/register_button_icon_widgets.dart';
+import 'package:bloodbank_donors/screens/auth/register/presentation/view_model/managers/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../share/componant/text_from_field_widget.dart';
 
 Widget formOfFieldsRegister({
   required BuildContext context,
-  required GlobalKey<FormState> formKey,
+  required formKey,
   required emailController,
   required nameController,
-  required businessIdController,
-  required roleController,
+  required phoneController,
+  required addressController,
+  required birthdayController,
+  required bloodTypeController,
+  required passwordController,
+  required isUserOrNot,
 }) {
   return Container(
-    height: MediaQuery.of(context).size. height * 0.64,
+    height: MediaQuery.of(context).size. height * 0.66,
     decoration: const BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.only(
@@ -29,99 +34,194 @@ Widget formOfFieldsRegister({
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 5.0,
-            ),
-            defaultFormField(
-              context: context,
-              controller: emailController,
-              hintText: 'email',
-              labelText: "email",
-              suffixIcon: Icons.email,
-              colorSuffixIcon: Colors.grey,
-              type: TextInputType.emailAddress,
-              submit: (value) {
-                // if (formKey.currentState!.validate()) {}
-              },
-              validate: (String? value) {
-                if (value!.isEmpty) {
-                  return 'email must not be empty';
-                }
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView(
+                  children:
+                  [
+                    const SizedBox(
+                      height: 5.0,
+                    ),        defaultFormField(
+                    context: context,
+                    controller: emailController,
+                    hintText: 'email',
+                    labelText: "email",
+                    suffixIcon: Icons.email,
+                    colorSuffixIcon: Colors.grey,
+                    type: TextInputType.emailAddress,
+                    submit: (value) {
+                      // if (formKey.currentState!.validate()) {}
+                    },
+                    validate: (String? value) {
+                      if (value!.isEmpty) {
+                        return 'email must not be empty';
+                      }
 
-                return null;
-              },
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            defaultFormField(
-              context: context,
-              controller: nameController,
-              hintText: 'name',
-              labelText: "name",
-              suffixIcon: Icons.person,
-              colorSuffixIcon: Colors.grey,
-              type: TextInputType.text,
-              submit: (value) {
-                if (formKey.currentState!.validate()) {}
-              },
-              validate: (String? value) {
-                if (value!.isEmpty) {
-                  return 'name must not be empty';
-                }
+                      return null;
+                    },
+                  ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    defaultFormField(
+                      context: context,
+                      controller: nameController,
+                      hintText: 'name',
+                      labelText: "name",
+                      suffixIcon: Icons.person,
+                      colorSuffixIcon: Colors.grey,
+                      type: TextInputType.text,
+                      submit: (value) {
+                        if (formKey.currentState!.validate()) {}
+                      },
+                      validate: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'name must not be empty';
+                        }
 
-                return null;
-              },
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            defaultFormField(
-              context: context,
-              controller: businessIdController,
-              hintText: 'businessId',
-              labelText: "businessId",
-              suffixIcon: Icons.home,
-              colorSuffixIcon: Colors.grey,
-              type: TextInputType.text,
-              submit: (value) {
-                // if (formKey.currentState!.validate()) {}
-              },
-              validate: (String? value) {
-                if (value!.isEmpty) {
-                  return 'businessId must not be empty';
-                }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    defaultFormField(
+                      context: context,
+                      controller: phoneController,
+                      hintText: 'phone',
+                      labelText: "phone",
+                      suffixIcon: Icons.phone,
+                      colorSuffixIcon: Colors.grey,
+                      type: TextInputType.text,
+                      submit: (value) {
+                        if (formKey.currentState!.validate()) {}
+                      },
+                      validate: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'phone must not be empty';
+                        }
 
-                return null;
-              },
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            defaultFormField(
-              context: context,
-              controller: roleController,
-              hintText: 'role',
-              labelText: "role",
-              suffixIcon: Icons.rotate_left,
-              colorSuffixIcon: Colors.grey,
-              type: TextInputType.text,
-              submit: (value) {
-                // if (formKey.currentState!.validate()) {}
-              },
-              validate: (String? value) {
-                if (value!.isEmpty) {
-                  return 'role must not be empty';
-                }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    defaultFormField(
+                      context: context,
+                      controller: addressController,
+                      hintText: 'address',
+                      labelText: "address",
+                      suffixIcon: Icons.home,
+                      colorSuffixIcon: Colors.grey,
+                      type: TextInputType.text,
+                      submit: (value) {
+                        if (formKey.currentState!.validate()) {}
+                      },
+                      validate: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'address must not be empty';
+                        }
 
-                return null;
-              },
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    if (isUserOrNot=="user")
+                      defaultFormField(
+                      context: context,
+                      controller: birthdayController,
+                      hintText: '2024-02-08',
+                      labelText: "birthday",
+                      suffixIcon: Icons.share_arrival_time,
+                      colorSuffixIcon: Colors.grey,
+                      type: TextInputType.text,
+                      submit: (value) {
+                        if (formKey.currentState!.validate()) {}
+                      },
+                      validate: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'birthday must not be empty'
+                              'look like 2024-02-08';
+                        }
+
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),const SizedBox(
+                    height: 10.0,
+                  ),
+                    if (isUserOrNot=="user")
+                      defaultFormField(
+                      context: context,
+                      controller: bloodTypeController,
+                      hintText: 'blood_type',
+                      labelText: "blood_type",
+                      suffixIcon: Icons.bloodtype,
+                      colorSuffixIcon: Colors.grey,
+                      type: TextInputType.text,
+                      submit: (value) {
+                        if (formKey.currentState!.validate()) {}
+                      },
+                      validate: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'blood_type must not be empty';
+                        }
+
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    defaultFormField(
+                      context: context,
+                      controller: passwordController,
+                      hintText: 'password',
+                      labelText: "password",
+                      suffixIcon: Icons.visibility_off,
+                      suffixPressd: (){
+                        RegisterCubit.get(context).changePasswordVisibility();
+                      },
+                      colorSuffixIcon: Colors.grey,
+                      type: TextInputType.text,
+                      submit: (value) {
+                        if (formKey.currentState!.validate()) {}
+                      },
+                      validate: (String? value) {
+                        if (value!.isEmpty) {
+                          return 'password must not be empty';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+
+                    ]
+                ),
+              ),
             ),
-            Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                registerButtonWidget(context: context),
+                registerButtonWidget(context: context,
+                  emailController: emailController,
+                  nameController: nameController,
+                  phoneController : phoneController,
+                  addressController : addressController,
+                  birthdayController : birthdayController,
+                  bloodTypeController : bloodTypeController,
+                  passwordController : passwordController,
+                    isUserOrNot:isUserOrNot,
+                  formKey: formKey
+                ),
               ],
             ),
           ],

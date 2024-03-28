@@ -28,7 +28,7 @@ Widget formOfFieldsLogin(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 40.0,
+              height: 20.0,
             ),
             Align(
               alignment: Alignment.center,
@@ -51,7 +51,7 @@ Widget formOfFieldsLogin(
               colorSuffixIcon: Colors.grey,
               type: TextInputType.emailAddress,
               submit: (value) {
-                // if (formKey.currentState!.validate()) {}
+                if (formKey.currentState!.validate()) {}
               },
               validate: (String? value) {
                 if (value!.isEmpty) {
@@ -62,7 +62,7 @@ Widget formOfFieldsLogin(
               },
             ),
             const SizedBox(
-              height: 30.0,
+              height: 20.0,
             ),
             defaultFormField(
               context: context,
@@ -91,7 +91,7 @@ Widget formOfFieldsLogin(
               labelText: "Password",
             ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
           ],
         ),

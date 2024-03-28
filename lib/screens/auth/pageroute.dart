@@ -188,12 +188,13 @@ class Alignmentaion extends PageRouteBuilder {
     transitionsBuilder: (context, animation, animationtwo, child) {
       var begin =  0.0;
       var end = 1.0;
+
       var tween = Tween(
         begin: begin,
         end: end,
       );
       var curveanimation = CurvedAnimation(
-          parent: animation, curve: Curves.linearToEaseOut);
+          parent: animation, curve: Curves.linearToEaseOut,);
 
 
       //بيقسم الشاشه نصين

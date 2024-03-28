@@ -1,17 +1,20 @@
-
 import 'package:bloodbank_donors/screens/auth/login/presentation/view/screens/login.dart';
 import 'package:bloodbank_donors/screens/auth/login/presentation/view_model/managers/cubit/cubit.dart';
+import 'package:bloodbank_donors/screens/auth/login/presentation/view_model/managers/cubit/states.dart';
 import 'package:bloodbank_donors/screens/auth/pageroute.dart';
 import 'package:bloodbank_donors/screens/auth/register/presentation/view/screens/register.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../share/componant/custom_text_button.dart';
 import 'RPS_custom_painter_login.dart';
 
-Widget loginButtonWidget({required BuildContext context,required  password,required  email}) {
+Widget loginButtonWidget(
+    {required BuildContext context, required password, required email}) {
   return Stack(alignment: Alignment.bottomLeft, children: [
     Container(
-      height: MediaQuery.of(context).size. height * 0.35,
+      height: MediaQuery.of(context).size.height * 0.35,
       width: double.infinity,
       child: CustomPaint(
         painter: RPSCustomPainter(),
@@ -21,7 +24,7 @@ Widget loginButtonWidget({required BuildContext context,required  password,requi
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-               SizedBox(
+              SizedBox(
                 height: MediaQuery.sizeOf(context).width * 0.11,
               ),
               Row(
@@ -29,18 +32,26 @@ Widget loginButtonWidget({required BuildContext context,required  password,requi
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(30.0),
-                    child: CustomTextButton(
-                      heightButton: 60,
-                      width: MediaQuery.sizeOf(context).width * 0.6,
-                      backgroundColor: Colors.deepPurpleAccent,
-                      text: "Login",
-                      textColor: Colors.white,
-                      valueDoubleBorderRadius: 25,
-                      fontSize: 24,
-                      onPressed: () {
-                       LoginCubit.get(context).postLogin(password: password.text, email: email.text);
+                    child: BlocConsumer<LoginCubit, LoginStates>(
+                      listener: (context, state) {
                       },
-                    // width: context.width(0.2),
+                      builder: (context, state) {
+                        return state is LoginLoadingStates?
+                        const CupertinoActivityIndicator(radius: 30,color: Colors.orangeAccent,):CustomTextButton(
+                          heightButton: 60,
+                          width: MediaQuery.sizeOf(context).width * 0.6,
+                          backgroundColor: Colors.deepPurpleAccent,
+                          text: "Login",
+                          textColor: Colors.white,
+                          valueDoubleBorderRadius: 25,
+                          fontSize: 24,
+                          onPressed: () {
+                            LoginCubit.get(context).postLogin(
+                                password: password.text, email: email.text);
+                          },
+                          // width: context.width(0.2),
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -75,7 +86,8 @@ class AlertDialogUserOrHospital extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(context, Scale(page: Register()));
+                Navigator.push(
+                    context, Scale(page: Register(isUserOrNot: "user")));
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -109,7 +121,7 @@ class AlertDialogUserOrHospital extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.push(
-                    context, Scale(page: Register()));
+                    context, Scale(page: Register(isUserOrNot: "hospital")));
               },
               child: Container(
                 decoration: BoxDecoration(

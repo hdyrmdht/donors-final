@@ -47,13 +47,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     ),
   ];
   void submit() {
-    CacheHelper.saveShared(key: 'onBoarding', value: true).then((value) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>  Login(),
-        ),
-      );
+    CacheHelper.saveShared(key:"onBoarding", value: true).then((value){
+      if(value){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>  Login(),
+          ),
+        );
+      print(value);
+
+      }
     });
   }
 

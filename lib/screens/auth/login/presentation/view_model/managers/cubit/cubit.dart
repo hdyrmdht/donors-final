@@ -1,4 +1,5 @@
 
+import 'package:bloodbank_donors/screens/auth/login/data/LoginModel.dart';
 import 'package:bloodbank_donors/screens/auth/login/presentation/view_model/managers/cubit/states.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -18,27 +19,26 @@ class LoginCubit extends Cubit<LoginStates> {
     icons = isPasswordShown ? Icons.visibility_off : Icons.visibility;
     emit(ChangeVisibilityLoginStates());
   }
+
+
+
+  LoginModel? loginModel;
   Future postLogin({
     required String password,
     required String email,
   }) async {
     emit(LoginLoadingStates());
     try {
-      await DioHelper.postData(
+     var response= await DioHelper.postData(
         url:ApiEndPoints.login,
-        // data: {
-        //   "email": "ppqol@gmail.com",
-        //   "password": "123456789",
-        // },
         data: {
-          "email": "${email}",
-          "password": "${password}",
+          "email": email,
+          "password": password,
         },
       );
-      print("sssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
-      emit(LoginSuccessStates());
+     loginModel=LoginModel.fromJson(response.data);
+      emit(LoginSuccessStates(loginModel!));
     } catch (error) {
-      print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
       print(error.toString());
       emit(LoginErrorStates(error.toString()));
     }

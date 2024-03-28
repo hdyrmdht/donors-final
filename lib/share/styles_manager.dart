@@ -10,11 +10,11 @@ abstract class StyleHelper {
     );
   }
 
-  static TextStyle textStyle14Regular(BuildContext context) {
+  static TextStyle textStyle14Regular(BuildContext context, {required Color color}) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontWeight: FontWeight.w400,
-      color: Colors.grey,
+      color:color,
     );
   }
 
