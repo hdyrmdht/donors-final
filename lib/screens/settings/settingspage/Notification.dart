@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
-import 'package:bloodbank_donors/style/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../style/colors.dart';
+
+
 
 class NotifiPage extends StatefulWidget {
   static const String routeName = "notifpage";
@@ -21,39 +24,37 @@ class _NotifiPageState extends State<NotifiPage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
-        Image.asset(
-          "assets/images/background.png",
+      children: [ Image.asset( 
+        "assets/images/background.png",
           fit: BoxFit.fill,
-          width: double.infinity,
-          height: double.infinity,
+          width: double.infinity,height: double.infinity,
         ),
-        Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            backgroundColor: AppColors.primary,
-            title: Text(
-              'Notification',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+    
+        Scaffold(backgroundColor: Colors.transparent,
+          appBar: AppBar(backgroundColor: AppColors.primary,
+            title:  Text(
+                        'Notification',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      
           ),
           body: SingleChildScrollView(
             child: Column(
               children: [
+              
                 SizedBox(
                   height: 10,
                 ),
                 Column(
                   children: [
-                    SwitchListTile(
-                        activeColor: AppColors.primary,
+                    SwitchListTile(activeColor:AppColors.primary,
                         title: Text(
                           'Sound',
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                          style:
+                              TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                         ),
                         value: _isSound,
                         onChanged: (newvalue) {
@@ -69,12 +70,12 @@ class _NotifiPageState extends State<NotifiPage> {
                       ),
                     ),
                     SwitchListTile(
-                        activeColor: AppColors.primary,
+                        activeColor:AppColors.primary,
                         inactiveThumbColor: Colors.white,
                         title: Text(
                           'Vibrate',
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                          style:
+                              TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                         ),
                         value: _isVibrate,
                         onChanged: (newvalue) {
@@ -89,12 +90,11 @@ class _NotifiPageState extends State<NotifiPage> {
                         color: Color.fromARGB(255, 230, 218, 218),
                       ),
                     ),
-                    SwitchListTile(
-                        activeColor: AppColors.primary,
+                    SwitchListTile(activeColor:AppColors.primary,
                         title: Text(
                           'New tips available',
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                          style:
+                              TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                         ),
                         value: _isnewtips,
                         onChanged: (newvalue) {
@@ -109,12 +109,11 @@ class _NotifiPageState extends State<NotifiPage> {
                         color: Color.fromARGB(255, 230, 218, 218),
                       ),
                     ),
-                    SwitchListTile(
-                        activeColor: AppColors.primary,
+                    SwitchListTile(activeColor:AppColors.primary,
                         title: Text(
                           'New service available',
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                          style:
+                              TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                         ),
                         value: _isnewservices,
                         onChanged: (newvalue) {

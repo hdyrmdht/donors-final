@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import 'models/home_post_model.dart';
+//حسبي الله ونعم الوكيل  ahmed ragab
 class PostsItem extends StatelessWidget {
-  const PostsItem({super.key});
-
+  const PostsItem({super.key, required this.homePostModel});
+final HomePostModel homePostModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,8 +26,9 @@ class PostsItem extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      // 
-                      Text("هدير مدحت",
+                      // todo no name form back end
+                      Text(
+                         homePostModel.background ?? "هدير مدحت",
                           style: TextStyle(
                             fontSize: 20,
                           )),
@@ -34,8 +38,12 @@ class PostsItem extends StatelessWidget {
                           Icon(
                             Icons.public,
                             size: 13,
-                          ),SizedBox(width: 5,),
-                          Text("منذ دقائق",
+                          ),
+                          SizedBox(width: 5,),
+                          Text(
+                              DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                                DateTime.parse(homePostModel.createdAt ?? "منذ دقائق",),
+                              ),
                               style: TextStyle(
                                 fontSize: 12,
                               )),
@@ -57,6 +65,7 @@ class PostsItem extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
+                homePostModel.description??
                 " محتاج 4اكياس دم دم فصيله لعمليه قلب مفتوح كيس دم فريش"
                 "  لحاله حرجه في نطاق القاهره للتواصل 01091247775",
                 style: TextStyle(fontSize: 18),
@@ -70,44 +79,22 @@ class PostsItem extends StatelessWidget {
           SizedBox(
             height: 18,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    height: 25,
-                    width: 40,
-                    child: Image(
-                      image: AssetImage("assets/images/share.png"),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    height: 25,
-                    width: 40,
-                    child: Image(
-                      image: AssetImage("assets/images/comment.png",),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    height: 30,
-                    width: 50,
-                    child: Image(
-                      image: AssetImage("assets/images/singleLike.png"),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //
+          //     Center(
+          //       child: Container(
+          //         height: 25,
+          //         width: 40,
+          //         child: Image(
+          //           image: AssetImage("assets/images/comment.png",),
+          //         ),
+          //       ),
+          //     ),
+          //
+          //   ],
+          // ),
         ],
       ),
     );

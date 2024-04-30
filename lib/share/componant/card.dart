@@ -1,5 +1,6 @@
-import 'package:bloodbank_donors/style/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../style/colors.dart';
 
 class SelectCard extends StatelessWidget {
   const SelectCard({

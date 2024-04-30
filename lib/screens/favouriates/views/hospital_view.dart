@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bloodbank_donors/style/colors.dart';
 
+import '../../../style/colors.dart';
 import '../model/hospital_model.dart';
 
 import '../widgets/hospital_card.dart';

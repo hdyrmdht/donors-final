@@ -1,7 +1,7 @@
-import 'package:bloodbank_donors/style/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../share/componant/drop_dwon_menu.dart';
+import '../../../style/colors.dart';
 
 class Hospitals extends StatelessWidget {
   const Hospitals({super.key});

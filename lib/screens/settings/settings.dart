@@ -1,15 +1,18 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:bloodbank_donors/share/componant/componant.dart';
-import 'package:bloodbank_donors/style/colors.dart';
+
+
 import 'package:flutter/material.dart';
 
+import '../../share/componant/componant.dart';
+import '../../style/colors.dart';
 import 'helppage/HelpPage.dart';
 import 'settingspage/Notification.dart';
 import 'settingspage/SecurityPage.dart';
 
+
 class SettingsTab extends StatefulWidget {
-  static const String routeName = "settings";
+  static const String routeName ="settings";
   @override
   State<SettingsTab> createState() => _SettingsTabState();
 }
@@ -26,7 +29,10 @@ class _SettingsTabState extends State<SettingsTab> {
               icon: Icons.notifications_sharp,
               text: 'Notification',
               function: () {
-                Navigator.pushNamed(context, NotifiPage.routeName);
+                Navigator.pushNamed(
+                    context,NotifiPage.routeName
+                    );
+                  
               },
             ),
             SizedBox(
@@ -36,12 +42,9 @@ class _SettingsTabState extends State<SettingsTab> {
                 color: Color.fromARGB(255, 230, 218, 218),
               ),
             ),
-            Settingsfields(
-                icon: Icons.lock,
-                text: 'Security',
-                function: () {
-                  Navigator.pushNamed(context, SecurityPage.routeName);
-                }),
+            Settingsfields(icon: Icons.lock, text: 'Security', function: () {  Navigator.pushNamed(
+                    context,SecurityPage.routeName
+                    );}),
             SizedBox(
               height: 40,
               width: 310,
@@ -61,11 +64,8 @@ class _SettingsTabState extends State<SettingsTab> {
               ),
             ),
             Settingsfields(
-                icon: Icons.info_rounded,
-                text: 'HELP',
-                function: () {
-                  Navigator.pushNamed(context, HelpPage.routeName);
-                }),
+                icon: Icons.info_rounded, text: 'HELP', function: () {Navigator.pushNamed(
+                    context,HelpPage.routeName);}),
             SizedBox(
               height: 40,
               width: 310,
@@ -73,13 +73,12 @@ class _SettingsTabState extends State<SettingsTab> {
                 color: Color.fromARGB(255, 230, 218, 218),
               ),
             ),
-            Row(
+      Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 14),
-                  child: Container(
-                    width: 48,
+                  child: Container(width: 48,
                     height: 48,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -89,13 +88,14 @@ class _SettingsTabState extends State<SettingsTab> {
                       Icons.people_alt,
                       color: AppColors.primary60,
                     ),
+                    
                   ),
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 Text(
-                  " invite Friends",
+                " invite Friends",
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
@@ -105,15 +105,17 @@ class _SettingsTabState extends State<SettingsTab> {
                 Padding(
                   padding: const EdgeInsets.only(right: 14),
                   child: MaterialButton(
-                      minWidth: 6,
-                      child: Icon(
-                        Icons.share,
-                        color: AppColors.primary60,
-                      ),
-                      onPressed: () {}),
+                    minWidth: 6,
+                    child: Icon(
+                      Icons.share,
+                      color: AppColors.primary60,
+                    ),
+                    onPressed: (){}
+                 
+                  ),
                 ),
               ],
-            ),
+            ), 
             SizedBox(
               height: 40,
               width: 310,
@@ -121,6 +123,7 @@ class _SettingsTabState extends State<SettingsTab> {
                 color: Color.fromARGB(255, 230, 218, 218),
               ),
             ),
+      
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -134,7 +137,7 @@ class _SettingsTabState extends State<SettingsTab> {
                     // ignore: sort_child_properties_last
                     child: MaterialButton(
                       onPressed: () {
-                        showbutnheet(context);
+                       showbutnheet(context);
                       },
                       child: Icon(
                         Icons.login_rounded,
@@ -157,6 +160,7 @@ class _SettingsTabState extends State<SettingsTab> {
                 ),
               ],
             ),
+           
           ]),
         ),
       ),

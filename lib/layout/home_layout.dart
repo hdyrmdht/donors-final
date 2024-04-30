@@ -1,20 +1,18 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bloodbank_donors/screens/donors/donor.dart';
-import 'package:bloodbank_donors/screens/home/search_page/view/search_page.dart';
-import 'package:bloodbank_donors/screens/hospitels/screen/hospitals.dart';
-import 'package:bloodbank_donors/screens/profile/data/api_manager.dart';
-import 'package:bloodbank_donors/screens/profile/presentation/view/screens/profile.dart';
-import 'package:bloodbank_donors/screens/profile/presentation/view_model/managers/cubit/cubit.dart';
-import 'package:bloodbank_donors/style/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/donors/donor.dart';
 import '../screens/home/home.dart';
+import '../screens/hospitels/screen/hospitals.dart';
+import '../screens/profile/profile.dart';
 import '../screens/settings/settings.dart';
+import '../style/colors.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = "homeLayout";
+
+  const HomeLayout({super.key});
 
   @override
   State<HomeLayout> createState() => _HomeLayoutState();
@@ -56,16 +54,7 @@ class _HomeLayoutState extends State<HomeLayout> {
             "Donors",
             style: TextStyle(fontSize: 25),
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, SearchPage.routeName);
-                  },
-                  child: Icon(Icons.search)),
-            ),
-          ],
+
         ),
         bottomNavigationBar: BottomAppBar(
           notchMargin: 8,
@@ -122,8 +111,5 @@ class _HomeLayoutState extends State<HomeLayout> {
     Hospitals(),
     Donors(),
     SettingsTab(),
-    BlocProvider(
-        create: (context) => UserProfileCubit(ApiManager()),
-        child: ProfileScreen()),
   ];
 }

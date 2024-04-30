@@ -1,5 +1,6 @@
-import 'package:bloodbank_donors/style/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../style/colors.dart';
 
 class PrivacyPage extends StatefulWidget {
   const PrivacyPage({super.key});
@@ -13,16 +14,15 @@ class _PrivacyPageState extends State<PrivacyPage> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          "assets/images/background.png",
+          Image.asset( 
+        "assets/images/background.png",
           fit: BoxFit.fill,
-          width: double.infinity,
-          height: double.infinity,
+          width: double.infinity,height: double.infinity,
         ),
-        Scaffold(
-            backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              backgroundColor: AppColors.primary,
+    
+        Scaffold(backgroundColor: Colors.transparent,
+          
+          appBar: AppBar(backgroundColor: AppColors.primary,
               title: Text(
                 'Privacy Policy',
                 style: TextStyle(

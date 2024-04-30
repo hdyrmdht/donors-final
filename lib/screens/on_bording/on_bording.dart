@@ -1,14 +1,14 @@
-import 'package:bloodbank_donors/screens/auth/login/presentation/view/screens/login.dart';
-import 'package:bloodbank_donors/share/componant/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../share/componant/cache_helper.dart';
+import '../login/login.dart';
 
 class BoardingModel {
   String? image;
   String? title;
   String? body;
-
   BoardingModel({
     required this.image,
     required this.title,
@@ -47,18 +47,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       title: "تتبع المتبرع ",
     ),
   ];
-
   void submit() {
-    CacheHelper.saveShared(key: "onBoarding", value: true).then((value) {
-      if (value) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Login(),
-          ),
-        );
-        print(value);
-      }
+    CacheHelper.saveShared(key: 'onBoarding', value: true).then((value) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MyLogin(),
+        ),
+      );
     });
   }
 
@@ -133,16 +129,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       dotColor: Colors.red,
                       activeDotColor: Colors.black,
                       dotHeight: 15,
-                      expansionFactor: 4,
-                      //دي اللى بتوصل بين النقطتين
+                      expansionFactor: 4, //دي اللى بتوصل بين النقطتين
                       dotWidth: 15,
                       spacing: 5,
                     ),
                     count: boarding.length,
                   ),
 
-                  const Spacer(),
-                  //علشان يرمى اللى بعديه فى اخر الصفحه يعنى بيبعد اللى قبليه عن اللى بعديه
+                  const Spacer(), //علشان يرمى اللى بعديه فى اخر الصفحه يعنى بيبعد اللى قبليه عن اللى بعديه
                   FloatingActionButton(
                     backgroundColor: Colors.red,
                     onPressed: () {

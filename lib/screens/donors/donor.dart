@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:bloodbank_donors/style/colors.dart';
 
 import '../../share/componant/drop_dwon_menu.dart';
+import '../../style/colors.dart';
 
 class Donors extends StatelessWidget {
   const Donors({super.key});
-
   static const String donors = "donors";
 
   @override
@@ -18,15 +17,15 @@ class Donors extends StatelessWidget {
         ),
         child: Container(
           height: 130,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: AppColors.primary60,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomRight: Radius.circular(30),
               bottomLeft: Radius.circular(30),
             ),
           ),
-          child: const Padding(
-            padding: EdgeInsets.all(16),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -37,7 +36,7 @@ class Donors extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 12,
                     ),
                     Text(
@@ -75,12 +74,10 @@ class Donors extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: MediaQuery
-                          .sizeOf(context)
-                          .width * 0.4,
+                      width: MediaQuery.sizeOf(context).width * 0.4,
                       child: DefaultDropdownMenuButton(
                         value: "الكل",
-                        hint: const Text(
+                        hint: Text(
                           "الكل",
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -92,7 +89,7 @@ class Donors extends StatelessWidget {
                         listOfDropdownMenuItem: [
                           DropdownMenuItem(
                             value: "الكل", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               "الكل",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -106,7 +103,7 @@ class Donors extends StatelessWidget {
                           ),
                           DropdownMenuItem(
                             value: "A-", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               "A-",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -118,7 +115,7 @@ class Donors extends StatelessWidget {
                           ),
                           DropdownMenuItem(
                             value: "A+", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               "A+",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -130,7 +127,7 @@ class Donors extends StatelessWidget {
                           ),
                           DropdownMenuItem(
                             value: "B-", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               "B-",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -142,7 +139,7 @@ class Donors extends StatelessWidget {
                           ),
                           DropdownMenuItem(
                             value: "B+", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               "B+",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -154,7 +151,7 @@ class Donors extends StatelessWidget {
                           ),
                           DropdownMenuItem(
                             value: "AB", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               textAlign: TextAlign.center,
                               "AB",
                               style: TextStyle(
@@ -166,7 +163,7 @@ class Donors extends StatelessWidget {
                           ),
                           DropdownMenuItem(
                             value: "AB+", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               "AB+",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -178,7 +175,7 @@ class Donors extends StatelessWidget {
                           ),
                           DropdownMenuItem(
                             value: "O-", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               textAlign: TextAlign.center,
                               "O-",
                               style: TextStyle(
@@ -190,7 +187,7 @@ class Donors extends StatelessWidget {
                           ),
                           DropdownMenuItem(
                             value: "O+", // Unique value for each item
-                            child: const Text(
+                            child: Text(
                               textAlign: TextAlign.center,
                               "O+",
                               style: TextStyle(
@@ -206,10 +203,8 @@ class Donors extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery
-                          .sizeOf(context)
-                          .width * 0.5,
-                      child: const Text(
+                      width: MediaQuery.sizeOf(context).width * 0.5,
+                      child: Text(
                         "? هل تريد البحث عن فصيله محدده",
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -248,8 +243,8 @@ Widget itemDonorsListView() {
       children: [
         Container(
           color: AppColors.primary60,
-          child: const Padding(
-            padding: EdgeInsets.all(4),
+          child: Padding(
+            padding: const EdgeInsets.all(4),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -366,14 +361,14 @@ Widget itemDonorsListView() {
           ),
         ),
         Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: AppColors.grey,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomRight: Radius.circular(20.0),
               bottomLeft: Radius.circular(20.0),
             ),
           ),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
@@ -381,7 +376,7 @@ Widget itemDonorsListView() {
                 color: AppColors.white,
                 size: 28,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               Text(

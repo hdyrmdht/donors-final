@@ -1,15 +1,15 @@
-import 'package:bloodbank_donors/style/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../style/colors.dart';
+
+
+
 
 class FavouriteHospitalCard extends StatelessWidget {
   const FavouriteHospitalCard({
-    super.key,
-    required this.name,
-    required this.review,
-    required this.title,
-    required this.hospital,
+    super.key, required this.name, required this.review, required this.title, required this.hospital,
   });
-
+  
   final String name;
   final String review;
   final String title;
@@ -63,9 +63,8 @@ class FavouriteHospitalCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Icon(
-                      //Remix.star_half_s_fill,
-                      Icons.star_border,
+                  const Icon(//Remix.star_half_s_fill,
+                  Icons.star_border,
                       color: AppColors.primary),
                   Text(
                     review,
@@ -87,7 +86,7 @@ class FavouriteHospitalCard extends StatelessWidget {
               ),
               Text(
                 hospital,
-                style: TextStyle(
+                style:TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
